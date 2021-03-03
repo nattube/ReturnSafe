@@ -51,7 +51,7 @@ namespace ReturnSafe.Example {
         }
 
         static string PotentiallyDangerousFunction(string input) {
-            if (String.IsNullOrEmpty(input)) return null; //possibly Null return            
+            if (String.IsNullOrEmpty(input)) return null; //possible Null return            
             int i = int.Parse(input); //Possible Exception not handled
             return input;
         }
