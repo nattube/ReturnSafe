@@ -46,7 +46,7 @@ namespace ReturnSafe.Example {
             Result<string, Exception> saveResult = TryStrict(() => PotentiallyDangerousFunction(Console.ReadLine()));
             string ageInput = saveResult.OrElse(e => "'Bad Input'").Unwrap();
 
-            Console.WriteLine("Even at your young age of only " + ageInput + " years, you should now know how this library works " + name + "!");
+            Console.WriteLine("Even at your young age of only " + ageInput + " years, you should now know how to return safe " + name + "!");
             Console.WriteLine("Thanks for playing!");
         }
 
