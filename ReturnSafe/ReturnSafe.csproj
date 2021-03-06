@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>ReturnSafe</PackageId>
+    <Version>0.9.0</Version>
+    <Authors>Nathanael_Nussbaumer</Authors>
   </PropertyGroup>
 
 </Project>
