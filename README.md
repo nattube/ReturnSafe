@@ -70,7 +70,7 @@ public Option<int> StringToIntOption(string value) {
 you can work on this return types with many different ways. You can either check the results with an if statement and unwrap them directly
 
 ```c#
-Option<int> myInt = StringToIntOption("12);
+Option<int> myInt = StringToIntOption("12");
 if(myInt) // == if(myInt.isSome) 
 {
     int i = myInt.Unwrap(); // throws an UnwrapException if myInt == None
