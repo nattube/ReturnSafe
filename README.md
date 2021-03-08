@@ -20,15 +20,15 @@ There are severel extension Methods for Result that let you operate on the resul
 ## Usage
 #### Note: For a more detailed Example checkout the ReturnSafe.Example folder
 
-make sure to import the Essentials as static to use the convenients functions
+make sure to import the Essentials as static to use the convenience functions
 ```c#
 using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials; //Import Convenients Methods like Some(TOptione) and None()
+using static ReturnSafe.Option.Essentials; //Import Convenience Functions like Some(TOptione) and None()
 using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials; //Import Convenients Methods like Ok(TResult) and Error(TError)
+using static ReturnSafe.Result.Essentials; //Import Convenience Functions like Ok(TResult) and Error(TError)
 ```
 
-after that you can use the Library like this: 
+after that you can create function that return Results or Options like this: 
 ```c#
 public Result<int, String> StringToIntResult(string value) {
     if (value == null) 
@@ -36,7 +36,7 @@ public Result<int, String> StringToIntResult(string value) {
     
     int i = 0;
 
-    Result<int, Exception> safeResult = TryStrict(() => int.Parse(value)); // Make external functions Save    
+    Result<int, Exception> safeResult = TryStrict(() => int.Parse(value)); // Make external functions Safe    
     int i2 = safeResult.OrElse(x => x == null ? -2 : -1).Unwrap(); // Provide an alternative value dependant on the error
 
     if (!int.TryParse(value, out i)) 
@@ -66,3 +66,21 @@ public Option<int> StringToIntOption(string value) {
     return Some(i); // or explicit
 }
 ```
+
+you can work on this return types with many different ways. You can either check the results with an if statement and unwrap them directly
+
+```c#
+Option<int> myInt = StringToIntOption("12);
+if(myInt) // == if(myInt.isSome) {
+    int i = myInt.Unwrap(); // throws an UnwrapException if myInt == None
+}
+   
+```
+
+or you can use some of the extension Methods that let you work on the result or option values with lambda functions. For example:
+
+```c#
+Result<int, String> saveResult = StringToIntResult(Console.ReadLine();
+int ageInput = saveResult.OrElse(error => -1).Unwrap(); /* The Lambda function in OrElse is only called on Errors and returns a new Result, if saveResult is Ok saveResult stays unchanged */
+```
+Make sure to checkout the other Methods like `AndThen` or `ExecuteIf`.
