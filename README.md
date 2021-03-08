@@ -81,7 +81,7 @@ if(myInt) // == if(myInt.isSome)
 or you can use some of the extension Methods that let you work on the result or option values with lambda functions. For example:
 
 ```c#
-Result<int, String> saveResult = StringToIntResult(Console.ReadLine();
+Result<int, String> saveResult = StringToIntResult(Console.ReadLine());
 int ageInput = saveResult.OrElse(error => -1).Unwrap(); /* The Lambda function in OrElse is only called on Errors and returns a new Result, if saveResult is Ok saveResult stays unchanged */
 ```
 Make sure to checkout the other Methods like `AndThen` or `ExecuteIf`.
