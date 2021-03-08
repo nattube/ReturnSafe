@@ -28,7 +28,7 @@ using ReturnSafe.Result;
 using static ReturnSafe.Result.Essentials; //Import Convenience Functions like Ok(TResult) and Error(TError)
 ```
 
-after that you can create function that return Results or Options like this: 
+after that you can create functions that return Results or Options like this: 
 ```c#
 public Result<int, String> StringToIntResult(string value) {
     if (value == null) 
@@ -67,7 +67,7 @@ public Option<int> StringToIntOption(string value) {
 }
 ```
 
-you can work on this return types with many different ways. You can either check the results with an if statement and unwrap them directly
+you can work on this return types in many different ways. You can either check the results with an if statement and unwrap them directly
 
 ```c#
 Option<int> myInt = StringToIntOption("12");
