@@ -1,4 +1,6 @@
-# ReturnSafe
+# ReturnSafe  
+[![nuget.org](https://img.shields.io/nuget/v/ReturnSafe?color=blue)](https://www.nuget.org/packages/ReturnSafe/)
+
 A Library that brings Rusts Option and Result Types to C#
 
 ## How is it Helpfull?
