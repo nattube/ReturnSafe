@@ -1,6 +1,6 @@
 ﻿using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials;
-using static ReturnSafe.Option.Essentials;
+using static ReturnSafe.Result.Result;
+using static ReturnSafe.Option.Option;
 using System;
 
 namespace ReturnSafe.Option {
@@ -148,6 +148,11 @@ namespace ReturnSafe.Option {
         public static Option<T> OrElse<T>(this Option<T> option, Func<Option<T>> func) {
             if (option.IsSome) return option;
             return func();
+        }
+
+        public static Option<TReturn> Select<T, TReturn>(this Option<T> option, Func<T, TReturn> func) {
+            if(option.IsSome) return func(option.Unwrap());
+            return None();
         }
 
         /// <summary>

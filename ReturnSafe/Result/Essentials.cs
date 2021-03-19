@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ReturnSafe.Result {
-    public static class Essentials {
+    public static class Result {
         /// <summary>
         /// Use: <code>Result&lt;TResult, TError&gt; myResult = Ok(myValue);</code>
         /// </summary>

@@ -36,6 +36,11 @@ namespace ReturnSafe.Option {
             this._value = default(T);
         }
         internal Option(T result) {
+            if(result == null) {
+                this._isSome = false;
+                this._value = default(T);
+                return;
+            }
             this._isSome = true;
             this._value = result;
         }

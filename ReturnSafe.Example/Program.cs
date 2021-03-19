@@ -1,8 +1,8 @@
 ﻿using System;
 using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials;
+using static ReturnSafe.Option.Option;
 using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials;
+using static ReturnSafe.Result.Result;
 
 namespace ReturnSafe.Example {
     class Program {
@@ -44,6 +44,13 @@ namespace ReturnSafe.Example {
 
             Console.WriteLine("Whats your age?");
             Result<string, Exception> saveResult = TryStrict(() => PotentiallyDangerousFunction(Console.ReadLine()));
+
+            //demonstration of handling error cases
+            string errorHandle = saveResult
+                                    .OrElseIf(e => e is ArgumentNullException, () => "No Input")
+                                    .OrElseIf(e => e is FormatException, () => "Bad Formated Input")
+                                    .OrElse((e) => e.Message).Unwrap();
+
             string ageInput = saveResult.OrElse(e => "'Bad Input'").Unwrap();
 
             Console.WriteLine("Even at your young age of only " + ageInput + " years, you should now know how to return safe " + name + "!");

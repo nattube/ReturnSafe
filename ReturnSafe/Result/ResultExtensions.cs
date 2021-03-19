@@ -1,6 +1,6 @@
 ﻿using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials;
-using static ReturnSafe.Result.Essentials;
+using static ReturnSafe.Option.Option;
+using static ReturnSafe.Result.Result;
 using System;
 
 namespace ReturnSafe.Result {
@@ -97,6 +97,25 @@ namespace ReturnSafe.Result {
         public static Result<TResult, TError> OrElse<TResult, TError>(this Result<TResult, TError> result, Func<TError, Result<TResult, TError>> func) {
             if (result.IsOk) return result;
             return func(result.Error);
+        }
+
+
+        /// <summary>
+        /// If result is Error and the predicate is true the return value of your function will be returned!
+        /// Otherwise result stays unchanged.
+        /// </summary>
+        public static Result<TResult, TError> OrElseIf<TResult, TError>(this Result<TResult, TError> result, Func<TError, bool> predicate, Func<Result<TResult, TError>> func) {
+            if (result.IsError && predicate(result.UnwrapError())) return func();
+            return result;
+        }
+
+        /// <summary>
+        /// If result is Error and the predicate is true the return value of your function will be returned!
+        /// Otherwise result stays unchanged.
+        /// </summary>
+        public static Result<TResult, TError> OrElseIf<TResult, TError>(this Result<TResult, TError> result, Func<TError, bool> predicate, Func<TError, Result<TResult, TError>> func) {
+            if (result.IsError && predicate(result.UnwrapError())) return func(result.UnwrapError());
+            return result;
         }
 
         /// <summary>
