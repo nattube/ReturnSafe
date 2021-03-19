@@ -35,7 +35,7 @@ public Result<int, String> StringToIntResult(string value) {
     int i = 0;
 
     Result<int, Exception> safeResult = TryStrict(() => int.Parse(value)); // Make external functions Save    
-    int i2 = safeResult.OrElse(x => x == null ? -2 : -1).Unwrap(); // Provide an alternative value dependant on the error
+    int i2 = safeResult.OrElse(x => x is NullReferenceException ? -2 : -1).Unwrap(); // Provide an alternative value dependant on the error
 
     if (!int.TryParse(value, out i)) 
         return Error("Format Error"); // Error Returns need to be Explicit

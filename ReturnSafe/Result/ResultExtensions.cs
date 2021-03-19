@@ -1,6 +1,6 @@
 ﻿using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials;
-using static ReturnSafe.Result.Essentials;
+using static ReturnSafe.Option.Option;
+using static ReturnSafe.Result.Result;
 using System;
 
 namespace ReturnSafe.Result {

@@ -3,8 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ReturnSafe</PackageId>
+    <Title>ReturnSafe</Title>
     <Version>0.9.0</Version>
-    <Authors>Nathanael_Nussbaumer</Authors>
+    <Authors>Nathanael Nussbaumer</Authors>
+    <ProjectUrl>https://github.com/nattube/ReturnSafe/</ProjectUrl>
+    <description>Brings Rusts Option and Result Types to C#</description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/nattube/ReturnSafe/</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
 </Project>

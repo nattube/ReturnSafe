@@ -1,8 +1,8 @@
 ﻿using System;
 using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials;
+using static ReturnSafe.Option.Option;
 using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials;
+using static ReturnSafe.Result.Result;
 
 namespace ReturnSafe.Example {
     class Program {

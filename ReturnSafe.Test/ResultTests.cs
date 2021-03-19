@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials;
+using static ReturnSafe.Result.Result;
 
 namespace ReturnSafe.Test {
     public class ResultTests {
