@@ -23,9 +23,9 @@ There are severel extension Methods for Result that let you operate on the resul
 make sure to import the Essentials as static to use the convenience functions
 ```c#
 using ReturnSafe.Option;
-using static ReturnSafe.Option.Essentials; //Import Convenience Functions like Some(TOptione) and None()
+using static ReturnSafe.Option.Option; //Import Convenience Functions like Some(TOptione) and None()
 using ReturnSafe.Result;
-using static ReturnSafe.Result.Essentials; //Import Convenience Functions like Ok(TResult) and Error(TError)
+using static ReturnSafe.Result.Result; //Import Convenience Functions like Ok(TResult) and Error(TError)
 ```
 
 after that you can create functions that return Results or Options like this: 
